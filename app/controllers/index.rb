@@ -13,8 +13,18 @@ get '/authorize' do
     session[:request_secret],
     params[:oauth_verifier]
   )
-
-  raise access_token.inspect
+  @user = User.new(access_token: access_token.token, access_token_secret: access_token.secret)
+  @user.save 
+  redirect '/home'
+  # raise access_token.inspect
   # access_token.token and access_token.secret can now be saved for future API calls
 
 end
+
+get '/home' do
+  erb :home
+end
+
+post '/home' do
+  #AJAX goes in here
+end  
