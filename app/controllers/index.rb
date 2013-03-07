@@ -25,6 +25,8 @@ get '/home' do
   erb :home
 end
 
-post '/home' do
-  #AJAX goes in here
+post '/search' do
+  @searchterm = params[:searchterm]
+  @listing = Etsy.user(@searchterm)
+  raise @listing.inspect
 end  

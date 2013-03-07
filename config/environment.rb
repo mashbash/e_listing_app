@@ -16,7 +16,7 @@ require 'active_record'
 require 'logger'
 
 require 'sinatra'
-require "sinatra/reloader" if development?
+require 'sinatra/reloader' if development?
 
 require 'erb'
 
@@ -34,8 +34,15 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
-#All Etsy stuff
-Etsy.api_key = 'vvuglie9p9owb1ymet3fj28k'
-Etsy.api_secret = 'jw3b6j7xe6'
+#All Etsy stuff 
+# Etsy.environment = :production
+if Sinatra::Application.development?
+  Etsy.environment = :production
+  etsy_data = YAML.load_file(APP_ROOT.join('config', 'etsy.yml')) # this returns a hash
+  Etsy.api_key = etsy_data['etsy_api_key']
+  Etsy.api_secret = etsy_data['etsy_api_secret']
+end
+
+Etsy.environment = :production if Sinatra::Application.production?
+
 Etsy.callback_url = 'http://localhost:9292/authorize'
-Etsy.environment = :production
