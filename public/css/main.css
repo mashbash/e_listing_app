@@ -1,0 +1,22 @@
+.container {
+  font-family: verdana;
+}
+
+.content {
+  padding-top: 80px;
+}
+
+h1 {
+  color: #FFA400;
+  margin-top: 5px;
+}
+
+.topbar {
+  position: fixed;
+  width: 100%;
+  background: #1049A9;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: center;
+}
