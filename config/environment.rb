@@ -33,3 +33,9 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+#All Etsy stuff
+Etsy.api_key = 'vvuglie9p9owb1ymet3fj28k'
+Etsy.api_secret = 'jw3b6j7xe6'
+Etsy.callback_url = 'http://localhost:9292/authorize'
+Etsy.environment = :production
