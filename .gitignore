@@ -25,5 +25,4 @@ chromedriver.log
 bin/
 .env
 *.swp
-
 config/etsy.yml

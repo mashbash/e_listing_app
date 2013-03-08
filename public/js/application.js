@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  
   $(".allcategories").on('submit', function(e){
     e.preventDefault();
     $.ajax({
@@ -7,7 +8,11 @@ $(document).ready(function(){
       data: $(this).serialize(),
       dataType: "html",
     }).success(function(data) {
-      $('.container').append(data);
+      $('.listings').html(data);
+      //refresh every 15secs? how to call on partial html
     });
   });
+
+  //click on categories and make search form appear and disappear
+
 });

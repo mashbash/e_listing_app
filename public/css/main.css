@@ -1,5 +1,30 @@
 .container {
   font-family: verdana;
+  text-align: center;
+}
+
+
+.navbar div {
+  float: left;
+  padding: 10px;
+  border: 1px solid grey;
+  margin: 10px;
+  left: 50px;
+  background: #FF6840;
+  display: none;
+}
+
+.navbar .first {
+  margin-left: 600px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  clear:both;
 }
 
 .content {

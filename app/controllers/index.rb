@@ -30,11 +30,12 @@ post '/search' do
   @listings = Etsy::Listing.find_all_active_by_category(@searchcategory, {:limit => 10}) #an array of listings objects
   # p @listings
   # @listings.each do  |l|
-  #   p l.title
-  #   p l.description
-  #   p l.price
-  #   p l.currency
-  #   p l.quantity
+  #   # p l.title
+  #   # p l.description
+  #   # p l.price
+  #   # p l.currency
+  #   # p l.quantity
+  #   p l[:user_id]
   # end  
   erb :_add_listing,
       :layout => false,
