@@ -26,10 +26,8 @@ get '/home' do
 end
 
 post '/search' do
-  p params
-  p ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   @searchcategory = params[:category]
-  @listings = Etsy::Listing.find_all_active_by_category(@searchcategory, {:limit => 5}) #an array of listings objects
+  @listings = Etsy::Listing.find_all_active_by_category(@searchcategory, {:limit => 10}) #an array of listings objects
   # p @listings
   # @listings.each do  |l|
   #   p l.title
